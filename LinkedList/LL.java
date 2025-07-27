@@ -59,7 +59,7 @@ public class LL {
             insertLast(value);
             return;
         }
-        Node temp = head;`
+        Node temp = head;
         for(int i=1 ; i<index ; i++){
             temp = temp.next;
         }
@@ -169,4 +169,5 @@ public class LL {
             this.next = next;
         }
     }
+
 }
