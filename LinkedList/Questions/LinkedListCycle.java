@@ -9,7 +9,7 @@
  *     }
  * }
  */
-//fast and slow pointer approach.....when both meet cycle is present
+//fast and slow pointer approach.....when both meet cycle is present 
 public class Solution {
     public boolean hasCycle(ListNode head) {
         ListNode fast = head;
