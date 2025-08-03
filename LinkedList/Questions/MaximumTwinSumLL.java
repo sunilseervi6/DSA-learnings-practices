@@ -1,4 +1,3 @@
-//leetcode 2130
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -9,27 +8,26 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-//fast and slow pointers
 class Solution {
     public int pairSum(ListNode head) {
-        int max = Integer.MIN_VALUE;
+        
         Stack<Integer> stack = new Stack<>();
         ListNode slow = head;
-        ListNode fast = head.next;
-        stack.push(slow.val);
-      //find the mid value -> slow
+        ListNode fast = head;
+        //move slow to the middle while pushing the first half of the linkedlist
         while(fast != null && fast.next != null){
+            stack.push(slow.val);
             slow = slow.next;
             fast = fast.next.next;
-            stack.push(slow.val);
         }
-      //add the slow after mid and stack value ...
-        while(!stack.isEmpty() &&  slow != null){
+
+        int max = Integer.MIN_VALUE;
+        //comapare 2nd half of the linkedlist with first half values from the stack
+        while(slow != null){
+            int twinSum = stack.pop() + slow.val;
+            max = Math.max(max, twinSum);
             slow = slow.next;
-            int val = stack.pop();
-            int sum = val + slow.val;
-            
-            max = Math.max(max, sum);
+
         }
         return max;
     }
